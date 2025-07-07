@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Zap, Settings, BarChart3, Shield, Workflow, Integration, CheckCircle, ArrowRight } from 'lucide-react';
+import { Zap, Settings, BarChart3, Shield, Workflow, CheckCircle, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SolutionSection = () => {
@@ -12,7 +12,7 @@ const SolutionSection = () => {
       benefits: ["Redução de 80% no tempo", "Zero erros manuais", "Maior produtividade"]
     },
     {
-      icon: Integration,
+      icon: Settings,
       title: "Integração de Sistemas",
       description: "Conectamos todos os seus sistemas para que trabalhem em harmonia",
       benefits: ["Dados centralizados", "Visão única do negócio", "Decisões mais rápidas"]

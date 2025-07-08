@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Zap, Settings, BarChart3, Shield, Workflow, CheckCircle, ArrowRight } from 'lucide-react';
+import { Zap, Settings, BarChart3, Shield, Workflow, CheckCircle, ArrowRight, Building2, Stethoscope, Pizza, Car, ShoppingBag, Users2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const SolutionSection = () => {
@@ -13,9 +13,9 @@ const SolutionSection = () => {
     },
     {
       icon: Settings,
-      title: "Integração de Sistemas",
-      description: "Conectamos todos os seus sistemas para que trabalhem em harmonia",
-      benefits: ["Dados centralizados", "Visão única do negócio", "Decisões mais rápidas"]
+      title: "Integração de CRMs & Sistemas",
+      description: "Conectamos HubSpot, Salesforce, Pipedrive, RD Station e todos os seus sistemas",
+      benefits: ["Sincronização automática", "Dados unificados", "Workflow inteligente"]
     },
     {
       icon: BarChart3,
@@ -86,6 +86,105 @@ const SolutionSection = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* CRM Integrations */}
+        <div className="text-center mb-16">
+          <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Integrações com os Principais CRMs
+          </h3>
+          <p className="text-xl text-gray-600 mb-12">
+            Conectamos automaticamente com as plataformas líderes do mercado
+          </p>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {[
+              { name: "HubSpot", logo: "🎯" },
+              { name: "Salesforce", logo: "☁️" },
+              { name: "Pipedrive", logo: "📊" },
+              { name: "RD Station", logo: "🚀" },
+              { name: "Bitrix24", logo: "💼" },
+              { name: "ActiveCampaign", logo: "📧" },
+              { name: "Zoho CRM", logo: "🔧" },
+              { name: "Monday.com", logo: "📋" }
+            ].map((crm, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 shadow-md border border-gray-100 hover:shadow-lg transition-shadow">
+                <div className="text-3xl mb-3">{crm.logo}</div>
+                <div className="font-semibold text-gray-800">{crm.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Industry Segments */}
+        <div className="bg-gradient-subtle rounded-3xl p-8 md:p-12 mb-16">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+              Segmentos que Atendemos
+            </h3>
+            <p className="text-xl text-gray-600">
+              Soluções especializadas para diversos tipos de negócio
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Stethoscope,
+                title: "Clínicas Médicas",
+                description: "Agendamentos, prontuários e integração com convênios",
+                automations: ["Confirmação automática", "Lembretes de consulta", "Controle de estoque"]
+              },
+              {
+                icon: Pizza,
+                title: "Pizzarias & Restaurantes",
+                description: "Pedidos, delivery e gestão de cardápio integrados",
+                automations: ["Pedidos WhatsApp", "Controle delivery", "Gestão de estoque"]
+              },
+              {
+                icon: Car,
+                title: "Concessionárias",
+                description: "Vendas, pós-venda e gestão de leads automotivos",
+                automations: ["Qualificação de leads", "Follow-up automático", "Agendamento test-drive"]
+              },
+              {
+                icon: ShoppingBag,
+                title: "E-commerce",
+                description: "Vendas online, estoque e relacionamento com cliente",
+                automations: ["Abandono de carrinho", "Upsell automático", "Gestão de reviews"]
+              },
+              {
+                icon: Building2,
+                title: "Imobiliárias",
+                description: "Captação, visitas e processo de vendas/locação",
+                automations: ["Captação de leads", "Agendamento visitas", "Contratos digitais"]
+              },
+              {
+                icon: Users2,
+                title: "Consultoria & Serviços",
+                description: "Gestão de projetos, clientes e faturamento",
+                automations: ["Propostas automáticas", "Controle de horas", "Cobrança recorrente"]
+              }
+            ].map((segment, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                <div className="w-14 h-14 bg-gradient-tech rounded-xl flex items-center justify-center mb-4">
+                  <segment.icon className="w-7 h-7 text-white" />
+                </div>
+                
+                <h4 className="text-xl font-bold text-gray-900 mb-3">{segment.title}</h4>
+                <p className="text-gray-600 mb-4 leading-relaxed">{segment.description}</p>
+                
+                <div className="space-y-2">
+                  {segment.automations.map((automation, autoIndex) => (
+                    <div key={autoIndex} className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      <span className="text-sm text-gray-700">{automation}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Process Overview */}

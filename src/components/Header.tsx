@@ -69,7 +69,7 @@ const Header = () => {
               Sobre
             </button>
             <button 
-              onClick={() => scrollToSection('contato')}
+              onClick={() => window.open('https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre as soluções da Opt1.', '_blank')}
               className="text-gray-700 hover:text-tech-blue transition-colors font-medium"
             >
               Contato
@@ -129,7 +129,7 @@ const Header = () => {
                 Sobre
               </button>
               <button 
-                onClick={() => scrollToSection('contato')}
+                onClick={() => window.open('https://wa.me/5511999999999?text=Olá! Gostaria de saber mais sobre as soluções da Opt1.', '_blank')}
                 className="text-left px-4 py-2 text-gray-700 hover:text-tech-blue transition-colors font-medium"
               >
                 Contato

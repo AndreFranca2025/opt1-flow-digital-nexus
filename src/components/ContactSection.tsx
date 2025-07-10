@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, UserRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -118,7 +118,7 @@ Mensagem: ${formData.message}`;
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
               <div className="mb-6">
                 <div className="w-20 h-20 bg-gradient-tech rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="w-10 h-10 text-white" />
+                  <UserRound className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Atendimento Online
@@ -139,7 +139,7 @@ Mensagem: ${formData.message}`;
                 className="btn-gradient group text-lg px-8 py-3"
               >
                 Iniciar Conversa
-                <MessageCircle className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+                <UserRound className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
               </Button>
 
               <p className="text-sm text-gray-500 mt-4">

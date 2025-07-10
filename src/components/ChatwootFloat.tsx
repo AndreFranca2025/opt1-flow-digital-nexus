@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, X } from 'lucide-react';
 
-const WhatsAppFloat = () => {
+const ChatwootFloat = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
 
@@ -27,10 +27,16 @@ const WhatsAppFloat = () => {
     }
   }, [showTooltip]);
 
-  const handleWhatsAppClick = () => {
-    const message = "Olá! Visitei o site da Opt1 e gostaria de saber mais sobre as soluções de automação para minha empresa.";
-    const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+  const handleChatwootClick = () => {
+    // Aqui você deve configurar o script do Chatwoot
+    // Por enquanto, vou abrir uma janela de chat genérica
+    // Substitua por sua configuração real do Chatwoot
+    if ((window as any).chatwootSDK) {
+      (window as any).chatwootSDK.toggle();
+    } else {
+      // Fallback caso o Chatwoot não esteja carregado
+      console.log('Chatwoot não está carregado');
+    }
     setShowTooltip(false);
   };
 
@@ -50,7 +56,7 @@ const WhatsAppFloat = () => {
             </button>
             
             <div className="flex items-start space-x-3">
-              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
               
@@ -59,7 +65,7 @@ const WhatsAppFloat = () => {
                   Especialista Opt1
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Olá! 👋 Posso ajudar você a descobrir como automatizar seus processos?
+                  Olá! 👋 Precisa de ajuda? Fale conosco agora mesmo!
                 </p>
               </div>
             </div>
@@ -70,20 +76,20 @@ const WhatsAppFloat = () => {
         </div>
       )}
 
-      {/* WhatsApp Button */}
+      {/* Chatwoot Button */}
       <button
-        onClick={handleWhatsAppClick}
-        className="whatsapp-float group bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 animate-pulse-glow"
-        aria-label="Falar no WhatsApp"
+        onClick={handleChatwootClick}
+        className="chatwoot-float group bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 animate-pulse-glow"
+        aria-label="Atendimento Online"
       >
         <MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" />
         
         {/* Pulse rings */}
-        <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-20"></div>
-        <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-10" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-20"></div>
+        <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-10" style={{ animationDelay: '0.5s' }}></div>
       </button>
     </>
   );
 };
 
-export default WhatsAppFloat;
+export default ChatwootFloat;

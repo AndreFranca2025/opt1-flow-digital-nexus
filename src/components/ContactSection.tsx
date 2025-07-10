@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -114,113 +114,37 @@ Mensagem: ${formData.message}`;
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nome *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full"
-                      placeholder="Seu nome completo"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full"
-                      placeholder="seu@email.com"
-                    />
-                  </div>
+            {/* Chatwoot Contact */}
+            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 text-center">
+              <div className="mb-6">
+                <div className="w-20 h-20 bg-gradient-tech rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-10 h-10 text-white" />
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Empresa
-                    </label>
-                    <Input
-                      id="company"
-                      name="company"
-                      type="text"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full"
-                      placeholder="Nome da sua empresa"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Telefone
-                    </label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full"
-                      placeholder="(11) 99999-9999"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Mensagem *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full"
-                    placeholder="Conte-nos sobre seus desafios e como podemos ajudar..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full btn-gradient group"
-                  disabled={isSubmitted}
-                >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle className="mr-2 w-5 h-5" />
-                      Mensagem Enviada!
-                    </>
-                  ) : (
-                    <>
-                      Enviar Mensagem
-                      <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </>
-                  )}
-                </Button>
-
-                <p className="text-sm text-gray-500 text-center">
-                  Ao enviar, você será redirecionado para o WhatsApp com sua mensagem pré-preenchida.
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Atendimento Online
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                  Fale conosco agora mesmo através do nosso chat online. Nossa equipe está pronta para ajudar você!
                 </p>
-              </form>
+              </div>
+
+              <Button
+                onClick={() => {
+                  if ((window as any).chatwootSDK) {
+                    (window as any).chatwootSDK.toggle();
+                  } else {
+                    console.log('Chatwoot não está carregado');
+                  }
+                }}
+                className="btn-gradient group text-lg px-8 py-3"
+              >
+                Iniciar Conversa
+                <MessageCircle className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform" />
+              </Button>
+
+              <p className="text-sm text-gray-500 mt-4">
+                Clique no botão acima ou no ícone flutuante para iniciar o atendimento.
+              </p>
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ import SolutionSection from '@/components/SolutionSection';
 import ResultsSection from '@/components/ResultsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import WhatsAppFloat from '@/components/WhatsAppFloat';
+import ChatwootFloat from '@/components/ChatwootFloat';
 
 const Index = () => {
   return (
@@ -19,7 +19,7 @@ const Index = () => {
       <ResultsSection />
       <ContactSection />
       <Footer />
-      <WhatsAppFloat />
+      <ChatwootFloat />
     </div>
   );
 };
